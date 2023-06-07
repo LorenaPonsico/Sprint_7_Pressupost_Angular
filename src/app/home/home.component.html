@@ -1,14 +1,17 @@
- <div>
-        <p>¿Qué quieres hacer?</p>
+ <div class="container">
+        <p >¿Qué quieres hacer?</p>
 
         <div>
             <label for="checkbox1">
                 <input 
                 type="checkbox" 
                 id="checkbox1" 
-                (change)="sumPrice()" />
+                (change)="sumPrice()"
+    
+                />
                 Una página web (500 €)
             </label>
+            <app-panell *ngIf="showPanell"></app-panell>
            
             <br />
             <label for="checkbox2">

@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  totalPrice: number = 0;
+  public totalPrice: number = 0;
+  public showPanell: boolean = false;
 
   sumPrice() {
 
@@ -20,6 +21,10 @@ export class HomeComponent {
     
     if (checkbox1.checked) {
       this.totalPrice += 500;
+      this.showPanell = true
+    }
+    else{
+      this.showPanell = false
     }
     
     if (checkbox2.checked) {
