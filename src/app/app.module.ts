@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PanellComponent } from './home/panell/panell.component';
+import { BudgetService } from './home/services/budget.service';
+import{ ReactiveFormsModule} from '@angular/forms'
 
 
 @NgModule({
@@ -14,9 +16,10 @@ import { PanellComponent } from './home/panell/panell.component';
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [BudgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
