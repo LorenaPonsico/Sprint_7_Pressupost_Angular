@@ -1,37 +1,27 @@
- <div class="container">
+<div class="container">
 
-        <p >¿Qué quieres hacer?</p>
+    <p>¿Qué quieres hacer?</p>
 
-        <div>
-            <label for="checkbox1">
-                <input 
-                type="checkbox" 
-                id="checkbox1" 
-                (change)="sumPrice()" />
-                Una página web (500 €)
-            </label>
-            <app-panell (valuesForm)="handleValuesFromChild($event)" *ngIf="showPanell"></app-panell>
-            <br />
-            <label for="checkbox2">
-                <input 
-                type="checkbox" 
-                id="checkbox2" 
-                (change)="sumPrice()" />
-                Una campaña SEO (300 €)
-            </label>
-            <br />
-            <label for="checkbox3">
-                <input 
-                type="checkbox" 
-                id="checkbox3" 
-                (change)="sumPrice()" />
-                Una campaña de Google Ads (200 €)
-            </label>
-        </div>
+    <div>
+        <label for="checkbox1">
+            <input type="checkbox" id="checkbox1" (change)="sumPrice()" />
+            Una página web (500 €)
+        </label>
+        <app-panell (valuesForm)="handleValuesFromChild($event)" *ngIf="showPanell"></app-panell>
+        <br />
+        <label for="checkbox2">
+            <input type="checkbox" id="checkbox2" (change)="sumPrice()" />
+            Una campaña SEO (300 €)
+        </label>
+        <br />
+        <label for="checkbox3">
+            <input type="checkbox" id="checkbox3" (change)="sumPrice()" />
+            Una campaña de Google Ads (200 €)
+        </label>
+    </div>
 
-        <div>
-            <p>Precio total: {{ totalPrice }}€</p>
-        </div>
-        
+    <div>
+        <p>Precio total: {{ totalPrice }}€</p>
+    </div>
+
 </div>
-

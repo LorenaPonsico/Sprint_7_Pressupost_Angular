@@ -8,13 +8,16 @@ import { BudgetService } from './services/budget.service';
 })
 
 export class HomeComponent {
-  
+
   public receivedValues: any;
   public totalPrice: number = 0;
   public showPanell: boolean = false;
   public resultPricePanell: number = 0;
 
-  constructor(private budgetService: BudgetService) {}
+  numeroPaginas: number = 0;
+  numeroIdiomas: number = 0;
+
+  constructor(private budgetService: BudgetService) { }
 
   sumPrice() {
     this.totalPrice = 0;

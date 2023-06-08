@@ -10,6 +10,6 @@ export class BudgetService {
     return additionalBudget;
   }
 
-  constructor() {}
+  constructor() { }
 
 }
