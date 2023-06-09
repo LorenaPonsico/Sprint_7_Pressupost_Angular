@@ -18,7 +18,7 @@ export class PanellComponent implements OnInit {
 
   constructor(private _builder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.myForm = this._builder.group({
       web: ["0", Validators.required],
       language: ["0", Validators.required]
@@ -29,7 +29,7 @@ export class PanellComponent implements OnInit {
     });
   }
 
-  incrementValueWebs() {
+  incrementValueWebs():void {
     const webValue = this.myForm.get('web')?.value;
     // Verifica si el valor es un número válido
     if (!isNaN(webValue)) {
@@ -44,7 +44,7 @@ export class PanellComponent implements OnInit {
   decrementValueWebs() {
     const webValue = this.myForm.get('web')?.value;
 
-    if (!isNaN(webValue)) {
+    if (!isNaN(webValue) && webValue > 0) {
       this.webValue--;
       this.resultadoInputWeb = this.webValue;
       this.myForm.setValue({ 'web': this.resultadoInputWeb, 'language': this.resultadoInputLanguage })
@@ -64,7 +64,7 @@ export class PanellComponent implements OnInit {
   decrementValueLanguage() {
     const languageValue = this.myForm.get('language')?.value;
 
-    if (!isNaN(languageValue)) {
+    if (!isNaN(languageValue) && languageValue > 0) {
       this.languageValue--;
       this.resultadoInputLanguage = this.languageValue;
       this.myForm.setValue({ 'web': this.resultadoInputWeb, 'language': this.resultadoInputLanguage, })

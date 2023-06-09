@@ -1,17 +1,21 @@
 <div class="form-wrapper">
+
     <form [formGroup]="myForm">
+
         <p>Número de páginas
             <button (click)="decrementValueWebs()">-</button>
             <input formControlName="web" id="web" [value]="resultadoInputWeb" type="text" inputmode="numeric"
                 pattern="[0-9]*">
             <button (click)="incrementValueWebs()">+</button>
         </p>
+
         <p>Número de idiomas
             <button (click)="decrementValueLanguage()">-</button>
             <input formControlName="language" id="language" [value]="resultadoInputLanguage" type="text"
                 inputmode="numeric" pattern="[0-9]*">
             <button (click)="incrementValueLanguage()">+</button>
         </p>
-
+        
     </form>
+
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BudgetService } from './services/budget.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,11 @@ import { BudgetService } from './services/budget.service';
 
 export class HomeComponent {
 
-  public receivedValues: any;
   public totalPrice: number = 0;
   public showPanell: boolean = false;
   public resultPricePanell: number = 0;
 
-  numeroPaginas: number = 0;
-  numeroIdiomas: number = 0;
-
-  constructor(private budgetService: BudgetService) { }
+  constructor(private budgetService: BudgetService, private router: Router) { }
 
   sumPrice() {
     this.totalPrice = 0;
@@ -51,5 +48,9 @@ export class HomeComponent {
       this.resultPricePanell = this.budgetService.calculateBudget(web, language);
       this.totalPrice += this.resultPricePanell
     }
+  }
+
+  previous(){
+    this.router.navigate([""])
   }
 }
