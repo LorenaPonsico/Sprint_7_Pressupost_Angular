@@ -10,7 +10,7 @@ export class WelcomeComponent {
 
   constructor(private router: Router){}
 
-  start(){
+  goHome(){
     this.router.navigate(["/home"])
   }
 

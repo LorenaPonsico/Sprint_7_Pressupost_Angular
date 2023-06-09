@@ -1,6 +1,6 @@
 <div class="container">
 
-    <p>¿Qué quieres hacer?</p>
+    <p class="title">¿Qué quieres hacer?</p>
 
     <div>
         <label for="checkbox1">
@@ -19,10 +19,10 @@
             Una campaña de Google Ads (200 €)
         </label>
     </div>
-
+<br>
     <div>
         <p>Precio total: {{ totalPrice }}€</p>
     </div>
 
-    <button (click)="previous()">ATRAS</button>
+    <button class="btn btn-primary" (click)="backWelcome()">Volver al inicio</button>
 </div>

@@ -50,7 +50,7 @@ export class HomeComponent {
     }
   }
 
-  previous(){
+  backWelcome(){
     this.router.navigate([""])
   }
 }
