@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { ModalComponent } from '../../modal/modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-panell',
@@ -16,7 +18,7 @@ export class PanellComponent implements OnInit {
 
   myForm!: FormGroup;
 
-  constructor(private _builder: FormBuilder) { }
+  constructor(private _builder: FormBuilder, public modal:NgbModal) { }
 
   ngOnInit():void {
     this.myForm = this._builder.group({
@@ -70,4 +72,6 @@ export class PanellComponent implements OnInit {
       this.myForm.setValue({ 'web': this.resultadoInputWeb, 'language': this.resultadoInputLanguage, })
     }
   }
+
+
 }

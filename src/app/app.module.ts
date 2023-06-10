@@ -8,6 +8,8 @@ import { BudgetService } from './home/services/budget.service';
 import{ ReactiveFormsModule} from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component'
 import { AppRoutingModule } from './app-routing.module';
+import { ModalComponent } from './modal/modal.component';
+
 
 
 
@@ -17,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     PanellComponent,
     WelcomeComponent,
+    ModalComponent,
 
   ],
   imports: [

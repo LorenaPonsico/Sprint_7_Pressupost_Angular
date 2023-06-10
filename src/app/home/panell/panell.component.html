@@ -6,7 +6,16 @@
             <button (click)="decrementValueWebs()">-</button>
             <input formControlName="web" id="web" [value]="resultadoInputWeb" type="text" inputmode="numeric"
                 pattern="[0-9]*">
-            <button (click)="incrementValueWebs()">+</button>
+            <button class="espacio" (click)="incrementValueWebs()">+</button>
+            
+            <ng-template #contenido let-modal>
+                <div class="modal-body">
+               En este componente debe indicar el numero de paginas que tendra que usar su sitio web
+                 <button class="close" type="button" (click)="modal.dismiss()">Ok</button> 
+                </div>                      
+            </ng-template>
+            
+            <button type="button" (click)="modal.open(contenido)">Info</button>
         </p>
 
         <p>Número de idiomas
