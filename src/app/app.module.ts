@@ -9,6 +9,7 @@ import{ ReactiveFormsModule} from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component'
 import { AppRoutingModule } from './app-routing.module';
 import { ModalComponent } from './modal/modal.component';
+import { PressupostListComponent } from './home/pressupost-list/pressupost-list.component';
 
 
 
@@ -20,6 +21,7 @@ import { ModalComponent } from './modal/modal.component';
     PanellComponent,
     WelcomeComponent,
     ModalComponent,
+    PressupostListComponent,
 
   ],
   imports: [

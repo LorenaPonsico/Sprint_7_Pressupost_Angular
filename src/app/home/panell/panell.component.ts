@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { ModalComponent } from '../../modal/modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
