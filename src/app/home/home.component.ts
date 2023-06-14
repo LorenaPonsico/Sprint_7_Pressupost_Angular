@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BudgetService } from './services/budget.service';
 import { Router } from '@angular/router';
 
@@ -8,45 +8,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  public totalPrice:        number = 0;
-  public showPanell:        boolean = false;
+  public totalPrice: number = 0;
+  public showPanell: boolean = false;
   public resultPricePanell: number = 0;
 
+  public nameBudget: string = "";
+  public customer: string = "";
+  public budgets: any[] = [];
 
-  // pressupostos: any[] = [];
-  // nomPressupost: string = "";
-  // client: string = "";
+  public checkbox1Checked: boolean = false;
+  public checkbox2Checked: boolean = false;
+  public checkbox3Checked: boolean = false;
 
+  constructor(private budgetService: BudgetService, private router: Router) { }
 
-
-  constructor(private budgetService: BudgetService, private router: Router) { 
-   
+  ngOnInit() { // se ejecuta cuando se renderiza/carga el componente home
+    this.budgets = this.budgetService.getBudgets();
   }
 
   sumPrice() {
 
     this.totalPrice = 0;
 
-    const checkbox1 = document.getElementById('checkbox1') as HTMLInputElement;
-    const checkbox2 = document.getElementById('checkbox2') as HTMLInputElement;
-    const checkbox3 = document.getElementById('checkbox3') as HTMLInputElement;
-
-    if (checkbox1.checked) {
+    if (this.checkbox1Checked) {
       this.totalPrice += 500;
-      this.showPanell = true
-    }
-    else {
-      this.showPanell = false
+      this.showPanell = true;
+    } else {
+      this.showPanell = false;
     }
 
-    if (checkbox2.checked) {
+    if (this.checkbox2Checked) {
       this.totalPrice += 300;
     }
-    
 
-    if (checkbox3.checked) {
+    if (this.checkbox3Checked) {
       this.totalPrice += 200;
     }
 
@@ -55,10 +52,9 @@ export class HomeComponent {
     }
   }
 
-  handleValuesFromChild(values: any) {
+  takeValuePanell(values: any) {
     const web = values.web;
     const language = values.language;
- 
 
     if (web >= 0 && language >= 0) {
       this.totalPrice -= this.resultPricePanell
@@ -72,26 +68,17 @@ export class HomeComponent {
   }
 
 
-  enviarPresupuesto() {
-    // const pressupost = {
-    //     nom: this.nomPressupost,
-    //     client: this.client,
-    //     servei: this.serveiSeleccionat,
-    //     preu: this.total + this.precioTotal,
-    //     data: this.data,
-    // };
-    // console.log("Pressupost:", pressupost);
-    // this.resultService.addBudget(pressupost);
+  sendBudget() {
+    const budget = {
+      name: this.nameBudget,
+      customer: this.customer,
+      price: this.totalPrice,
+      checkbox1: this.checkbox1Checked,
+      checkbox2: this.checkbox2Checked,
+      checkbox3: this.checkbox3Checked,
+      panell: this.resultPricePanell
+    };
 
-//     // Reiniciar los valores de los inputs después de enviar el presupuesto
-//     this.nomPressupost = "";
-//     this.client = "";
-//     this.serveiSeleccionat = [];
-//     this.total = 0;
-//     this.precioTotal = 0;
-// }
-
-
-
-}
+    this.budgetService.addBudgets(budget);
+  }
 }

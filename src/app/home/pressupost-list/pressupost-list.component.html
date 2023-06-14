@@ -1,1 +1,21 @@
-<p>pressupost-list works!</p>
+<div>
+  <h3>Listado de Presupuestos:</h3>
+  <ul>
+    <li class="box" *ngFor="let budget of budgets">
+      <div class="box-content">
+
+        <p>Nombre Presupuesto: {{ budget.name }}</p>
+        <p>Cliente/a: {{ budget.customer }}</p>
+        <p>Servicio contratado:</p>
+        <ul>
+          <li *ngIf="budget.checkbox1">Una página web (500 €)</li>
+          <li *ngIf="budget.checkbox2">Una campaña SEO (300 €)</li>
+          <li *ngIf="budget.checkbox3">Una campaña de Google Ads (200 €)</li>
+          <li>Precio por numero de paginas contratadas: {{budget.panell}} €</li>
+        </ul>
+
+        <p>Precio total: {{ budget.price }}</p>
+      </div>
+    </li>
+  </ul>
+</div>

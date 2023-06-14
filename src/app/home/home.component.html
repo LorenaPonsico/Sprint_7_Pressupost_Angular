@@ -1,46 +1,59 @@
 <div class="container">
+    <div class="row">
+        <div class="col-6">
 
-    <p class="title">¿Qué quieres hacer?</p>
+            <h2 class="title">¿Qué quieres hacer?</h2>
 
-    <div>
+            <div>
 
-        <div class="form-group">
-            <label for="nomPressupost">Nombre del presupuesto:</label>
-            <input type="text" class="form-control" id="nomPressupost" />
+                <div class="form-group">
+                    <label for="nomPressupost">Nombre del presupuesto:</label>
+                    <input type="text" class="form-control" id="nameBudget" [(ngModel)]="nameBudget" />
+                </div>
+
+                <div class="form-group">
+                    <label for="client">Cliente/a:</label>
+                    <input type="text" class="form-control" id="customer" [(ngModel)]="customer" />
+                </div>
+
+
+                <label for="checkbox1">
+                    <input type="checkbox" id="checkbox1" [(ngModel)]="checkbox1Checked" (change)="sumPrice()" />
+                    Una página web (500 €)
+                </label>
+                <app-panell (valuesForm)="takeValuePanell($event)" *ngIf="showPanell"></app-panell>
+                <br />
+                <label for="checkbox2">
+                    <input type="checkbox" id="checkbox2" [(ngModel)]="checkbox2Checked" (change)="sumPrice()" />
+                    Una campaña SEO (300 €)
+                </label>
+                <br />
+                <label for="checkbox3">
+                    <input type="checkbox" id="checkbox3" [(ngModel)]="checkbox3Checked" (change)="sumPrice()" />
+                    Una campaña de Google Ads (200 €)
+                </label>
+            </div>
+            <br>
+            <div>
+                <p>Precio total: {{ totalPrice }}€</p>
+            </div>
+
+
+            <button class="btn btn-success" (click)="sendBudget()">
+                Enviar
+            </button>
+            <br>
+            <br>
+
+            <button class="btn btn-primary" (click)="backWelcome()">Volver al inicio</button>
         </div>
 
-        <div class="form-group">
-            <label for="client">Cliente/a:</label>
-            <input type="text" class="form-control" id="client" />
+        <div class="col-4">
+            <div class="scrollable-list">
+                <app-pressupost-list [budgets]="budgets"></app-pressupost-list>
+            </div>
         </div>
 
-
-        <label for="checkbox1">
-            <input type="checkbox" id="checkbox1" (change)="sumPrice()" />
-            Una página web (500 €)
-        </label>
-        <app-panell (valuesForm)="handleValuesFromChild($event)" *ngIf="showPanell"></app-panell>
-        <br />
-        <label for="checkbox2">
-            <input type="checkbox" id="checkbox2" (change)="sumPrice()" />
-            Una campaña SEO (300 €)
-        </label>
-        <br />
-        <label for="checkbox3">
-            <input type="checkbox" id="checkbox3" (change)="sumPrice()" />
-            Una campaña de Google Ads (200 €)
-        </label>
-    </div>
-    <br>
-    <div>
-        <p>Precio total: {{ totalPrice }}€</p>
     </div>
 
-
-    <button class="btn btn-success" (click)="enviarPresupuesto()">
-        Enviar
-    </button>
-    <br>
-
-    <button class="btn btn-primary" (click)="backWelcome()">Volver al inicio</button>
 </div>

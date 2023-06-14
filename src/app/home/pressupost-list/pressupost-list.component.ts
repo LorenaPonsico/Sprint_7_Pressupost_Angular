@@ -1,19 +1,16 @@
-import { Component } from '@angular/core';
-import { BudgetService } from '../services/budget.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pressupost-list',
   templateUrl: './pressupost-list.component.html',
   styleUrls: ['./pressupost-list.component.css']
 })
-export class PressupostListComponent {
+export class PressupostListComponent  {
 
-  constructor(private budgetService: BudgetService){}
+  @Input() budgets: any;
 
-//   reinicialitzarOrdre() {
-//     this.pressupostos = this.budgetService.getPressupostos();
-//     this.ordreAlfabetic = false;
-//     this.ordreData = false;
-// }
+  constructor() { }
 
 }
+
+
