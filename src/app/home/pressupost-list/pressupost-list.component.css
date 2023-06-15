@@ -1,10 +1,17 @@
 .box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .box-content {
-    background-color: #f0f0f0;
-  }
-  
+  border: 3px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.box-content {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #dfe6e9;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
