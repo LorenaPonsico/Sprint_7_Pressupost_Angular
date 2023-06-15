@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   public checkbox1Checked: boolean = false;
   public checkbox2Checked: boolean = false;
   public checkbox3Checked: boolean = false;
-  budgetForm: any;
 
   constructor(private budgetService: BudgetService, private router: Router) { }
 
@@ -68,7 +67,6 @@ export class HomeComponent implements OnInit {
   backWelcome() {
     this.router.navigate([""])
   }
-
 
   sendBudget() {
     const budget = {

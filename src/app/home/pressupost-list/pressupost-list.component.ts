@@ -1,4 +1,5 @@
-import { Component, Input, Pipe } from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { BudgetService } from '../services/budget.service';
 
 @Component({
   selector: 'app-pressupost-list',
@@ -8,36 +9,34 @@ import { Component, Input, Pipe } from '@angular/core';
 export class PressupostListComponent {
 
   @Input() budgets: any;
+  originalBudgets: any; // presupuestos originales
 
-  // sortedBudgets: any;
+  constructor(private budgetService: BudgetService) { }
 
+  ngOnInit() {
+    this.originalBudgets = this.budgetService.getBudgets(); // Obtener los presupuestos del servicio
+  }
 
   sortAlphabeticallyByCustomer() {
     this.budgets = [...this.budgets]; // copio los presupuesto
-    console.log(this.budgets)
 
     this.budgets.sort((a: any, b: any) => a.customer.localeCompare(b.customer));
-  } 
+  }
 
-  
   sortByDate() {
     this.budgets = [...this.budgets]; // Hacer una copia de la lista original
-  
+
     this.budgets.sort((a: any, b: any) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
-      
+
       return dateA.getTime() - dateB.getTime();
     });
   }
-  
-  
 
   resetOrder() {
-    this.budgets = null; 
-   }
-
-  constructor() { }
+    this.budgets = [...this.originalBudgets]; // Restaurar los presupuestos a su estado original
+  }
 
 }
 
