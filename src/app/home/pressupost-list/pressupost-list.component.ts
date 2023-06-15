@@ -11,8 +11,8 @@ export class PressupostListComponent  {
 
 
   sortAlphabetically(){
-    if(this.budgets.lenght > 0){
-      this.budgets.name.sort()
+    if (this.budgets.length > 0) {
+      this.budgets.sort((a: any, b: any) => a.customer.localeCompare(b.customer));
     }
 
   }
