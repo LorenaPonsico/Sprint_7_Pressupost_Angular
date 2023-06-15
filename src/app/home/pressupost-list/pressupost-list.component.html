@@ -1,10 +1,15 @@
 <div>
   <h3>Listado de Presupuestos:</h3>
-  <button class="btn btn-secondary" (click)="sortAlphabeticallyByCustomer()">Ordenar alfabeticamente por cliente</button>
+  <input type="text" [(ngModel)]="searchBudget" placeholder="Buscar por nombre del cliente">
+
+  <button class="btn btn-secondary" (click)="searchByCustomer()">Buscar</button>
+  
+  <button class="btn btn-secondary btnOrder" (click)="sortAlphabeticallyByCustomer()">Ordenar alfabeticamente por
+    cliente</button>
   <br>
-  <button class="btn btn-secondary" (click)="sortByDate()">Ordenar por fecha</button>
+  <button class="btn btn-secondary btnOrder" (click)="sortByDate()">Ordenar por fecha</button>
   <br>
-  <button class="btn btn-secondary" (click)="resetOrder()"> Reinicializar orden</button>
+  <button class="btn btn-secondary btnOrder" (click)="resetOrder()"> Reinicializar orden</button>
 
   <ul>
     <li class="box" *ngFor="let budget of budgets">
@@ -21,7 +26,7 @@
           <li>Precio por numero de paginas contratadas: {{budget.panell}} €</li>
         </ul>
         <p>Precio total: {{ budget.price }}</p>
-        
+
       </div>
     </li>
   </ul>

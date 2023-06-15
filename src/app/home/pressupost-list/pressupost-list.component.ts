@@ -10,6 +10,7 @@ export class PressupostListComponent {
 
   @Input() budgets: any;
   originalBudgets: any; // presupuestos originales
+  searchBudget: string = '';
 
   constructor(private budgetService: BudgetService) { }
 
@@ -37,6 +38,19 @@ export class PressupostListComponent {
   resetOrder() {
     this.budgets = [...this.originalBudgets]; // Restaurar los presupuestos a su estado original
   }
+
+  searchByCustomer() {
+    if (this.searchBudget.trim() === '') {
+      // Si el término de búsqueda está vacío, mostrar todos los presupuestos originales
+      this.budgets = [...this.originalBudgets];
+    } else {
+      // Filtrar los presupuestos por el término de búsqueda
+      this.budgets = this.originalBudgets.filter((budget: any) =>
+        budget.customer.toLowerCase().includes(this.searchBudget.toLowerCase())
+      );
+    }
+  }
+  
 
 }
 
