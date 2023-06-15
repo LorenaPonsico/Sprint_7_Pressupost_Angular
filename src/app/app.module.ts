@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -32,6 +32,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [BudgetService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
 })
 export class AppModule { }

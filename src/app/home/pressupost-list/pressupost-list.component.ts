@@ -1,21 +1,41 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Pipe } from '@angular/core';
 
 @Component({
   selector: 'app-pressupost-list',
   templateUrl: './pressupost-list.component.html',
   styleUrls: ['./pressupost-list.component.css']
 })
-export class PressupostListComponent  {
+export class PressupostListComponent {
 
   @Input() budgets: any;
 
+  // sortedBudgets: any;
 
-  sortAlphabetically(){
-    if (this.budgets.length > 0) {
-      this.budgets.sort((a: any, b: any) => a.customer.localeCompare(b.customer));
-    }
 
+  sortAlphabeticallyByCustomer() {
+    this.budgets = [...this.budgets]; // copio los presupuesto
+    console.log(this.budgets)
+
+    this.budgets.sort((a: any, b: any) => a.customer.localeCompare(b.customer));
+  } 
+
+  
+  sortByDate() {
+    this.budgets = [...this.budgets]; // Hacer una copia de la lista original
+  
+    this.budgets.sort((a: any, b: any) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      
+      return dateA.getTime() - dateB.getTime();
+    });
   }
+  
+  
+
+  resetOrder() {
+    this.budgets = null; 
+   }
 
   constructor() { }
 

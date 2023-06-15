@@ -16,11 +16,13 @@ export class HomeComponent implements OnInit {
 
   public nameBudget: string = "";
   public customer: string = "";
+  public date: string = "";
   public budgets: any[] = [];
 
   public checkbox1Checked: boolean = false;
   public checkbox2Checked: boolean = false;
   public checkbox3Checked: boolean = false;
+  budgetForm: any;
 
   constructor(private budgetService: BudgetService, private router: Router) { }
 
@@ -72,6 +74,7 @@ export class HomeComponent implements OnInit {
     const budget = {
       name: this.nameBudget,
       customer: this.customer,
+      date: this.date,
       price: this.totalPrice,
       checkbox1: this.checkbox1Checked,
       checkbox2: this.checkbox2Checked,
