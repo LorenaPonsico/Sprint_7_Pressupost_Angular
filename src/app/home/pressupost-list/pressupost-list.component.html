@@ -1,5 +1,11 @@
 <div>
   <h3>Listado de Presupuestos:</h3>
+  <button class="btn btn-secondary" (click)="sortAlphabetically()">Ordenar Alfabeticamente</button>
+  <br>
+  <button class="btn btn-secondary" >Ordenar por fecha</button>
+  <br>
+  <button class="btn btn-secondary" > Reinicializar orden</button>
+
   <ul>
     <li class="box" *ngFor="let budget of budgets">
       <div class="box-content">

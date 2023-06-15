@@ -9,6 +9,14 @@ export class PressupostListComponent  {
 
   @Input() budgets: any;
 
+
+  sortAlphabetically(){
+    if(this.budgets.lenght > 0){
+      this.budgets.name.sort()
+    }
+
+  }
+
   constructor() { }
 
 }
