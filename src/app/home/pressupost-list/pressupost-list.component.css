@@ -10,8 +10,29 @@
 }
 
 .btnOrder {
-  background-color: #dfe6e9;
+  background-color: grey;
   display: block;
   width: 100%;
   margin-bottom: 10px;
+
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  margin-right: 8px;
+  padding: 8px;
+  font-size: 16px;
+  
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: grey;
+
 }

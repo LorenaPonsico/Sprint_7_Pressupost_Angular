@@ -1,16 +1,21 @@
 <div>
   <h3>Listado de Presupuestos:</h3>
-  <input type="text" [(ngModel)]="searchBudget" placeholder="Buscar por nombre del cliente">
+  <div class="search-container ">
 
-  <button class="btn btn-secondary" (click)="searchByCustomer()">Buscar</button>
-  
-  <button class="btn btn-secondary btnOrder" (click)="sortAlphabeticallyByCustomer()">Ordenar alfabeticamente por
-    cliente</button>
+    <input type="text" class="search-input" [(ngModel)]="searchBudget" placeholder="Buscar por nombre de cliente">
+    
+    <button class="btn btn-lg btn-secondary search-button" (click)="searchByCustomer()">Buscar</button>
+  </div>
   <br>
-  <button class="btn btn-secondary btnOrder" (click)="sortByDate()">Ordenar por fecha</button>
-  <br>
-  <button class="btn btn-secondary btnOrder" (click)="resetOrder()"> Reinicializar orden</button>
 
+    <button class="btn btn-secondary btnOrder" (click)="sortAlphabeticallyByCustomer()">Ordenar por
+      cliente</button>
+      <br>
+      <button class="btn btn-secondary btnOrder" (click)="sortByDate()">Ordenar por fecha</button>
+      <br>
+      <button class="btn btn-secondary btnOrder" (click)="resetOrder()"> Reinicializar orden</button>
+      
+ 
   <ul>
     <li class="box" *ngFor="let budget of budgets">
       <div class="box-content">
@@ -25,7 +30,7 @@
           <li *ngIf="budget.checkbox3">Una campaña de Google Ads (200 €)</li>
           <li>Precio por numero de paginas contratadas: {{budget.panell}} €</li>
         </ul>
-        <p>Precio total: {{ budget.price }}</p>
+        <p>Precio total: {{ budget.price }} € </p>
 
       </div>
     </li>

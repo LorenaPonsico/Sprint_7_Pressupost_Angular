@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BudgetService {
+  toLocaleUpperCase() {
+    throw new Error('Method not implemented.');
+  }
 
   budgets: any[] = [];
   // ARRAY DE PRESUPUESTOS

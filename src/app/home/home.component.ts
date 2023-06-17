@@ -70,8 +70,8 @@ export class HomeComponent implements OnInit {
 
   sendBudget() {
     const budget = {
-      name: this.nameBudget,
-      customer: this.customer,
+      name: this.nameBudget.charAt(0).toUpperCase() + this.nameBudget.slice(1),
+      customer: this.customer.charAt(0).toUpperCase() + this.customer.slice(1),
       date: this.date,
       price: this.totalPrice,
       checkbox1: this.checkbox1Checked,
@@ -81,5 +81,30 @@ export class HomeComponent implements OnInit {
     };
 
     this.budgetService.addBudgets(budget);
+    
+    this.nameBudget = "";
+    this.customer = "";
+    this.date = "";
+    this.checkbox1Checked = false;
+    this.checkbox2Checked = false;
+    this.checkbox3Checked = false;
+    this.showPanell = false;
+    this.resultPricePanell = 0;
+    this.totalPrice = 0; 
+    // volver a poner en blanco todos los inputs
+  }
+
+  navegar() { // esta función utiliza el enrutador para navegar a una nueva ruta en la aplicación y agrega parámetros de consulta a la URL
+    this.router.navigate([], {
+      queryParams: { // "queryParams" y "queryParamsHandling" son nombres de propiedades específicas que se utilizan en la función navigate()
+        nombre: this.nameBudget,
+        cliente: this.customer,
+        paginaWeb: this.checkbox1Checked,
+        campaniaSeo: this.checkbox2Checked,
+        googleAds: this.checkbox3Checked,
+        precio: this.totalPrice
+      },
+      queryParamsHandling: "merge",
+    });
   }
 }
