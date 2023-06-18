@@ -10,11 +10,9 @@
 }
 
 .btnOrder {
-  background-color: grey;
   display: block;
   width: 100%;
   margin-bottom: 10px;
-
 }
 
 .search-container {
@@ -27,12 +25,23 @@
   margin-right: 8px;
   padding: 8px;
   font-size: 16px;
-  
+
 }
 
-.search-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: grey;
 
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 50px;
+  background-color: #51b848;
+  ;
+  color: white;
+  cursor: pointer;
+
+}
+
+.btn:hover {
+  background-color: #5cd352;
 }
