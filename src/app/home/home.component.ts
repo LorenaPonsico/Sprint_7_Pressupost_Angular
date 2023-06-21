@@ -70,8 +70,8 @@ export class HomeComponent implements OnInit {
 
   sendBudget() {
     const budget = {
-      name: this.nameBudget.charAt(0).toUpperCase() + this.nameBudget.slice(1),
-      customer: this.customer.charAt(0).toUpperCase() + this.customer.slice(1),
+      name: this.nameBudget,
+      customer: this.customer,
       date: this.date,
       price: this.totalPrice,
       checkbox1: this.checkbox1Checked,

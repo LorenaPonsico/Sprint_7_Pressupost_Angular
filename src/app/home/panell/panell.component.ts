@@ -71,6 +71,4 @@ export class PanellComponent implements OnInit {
       this.myForm.setValue({ 'web': this.resultadoInputWeb, 'language': this.resultadoInputLanguage, })
     }
   }
-
-
 }

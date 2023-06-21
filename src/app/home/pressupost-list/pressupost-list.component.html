@@ -2,7 +2,7 @@
   <h3>Listado de Presupuestos:</h3>
   <div class="search-container ">
 
-    <input type="text" class="search-input" [(ngModel)]="searchBudget" placeholder="Buscar por nombre de cliente">
+    <input type="text" class="search-input" [(ngModel)]="searchBudget" placeholder="Buscar por cliente">
     
     <button class="btn btn-lg btn-secondary search-button" (click)="searchByCustomer()">Buscar</button>
   </div>
@@ -19,9 +19,9 @@
   <ul>
     <li class="box" *ngFor="let budget of budgets">
       <div class="box-content">
-
-        <p>Nombre Presupuesto: {{ budget.name }}</p>
-        <p>Cliente/a: {{ budget.customer }}</p>
+<!-- PIPES -->
+        <p>Nombre Presupuesto: {{ budget.name | titlecase }}</p>  
+        <p>Cliente/a: {{ budget.customer | titlecase }}</p>
         <p>Fecha: {{ budget.date | date:'dd/MM/yyyy': 'es' }}</p>
         <p>Servicio contratado:</p>
         <ul>

@@ -8,7 +8,7 @@ import { BudgetService } from '../services/budget.service';
 })
 export class PressupostListComponent {
 
-  @Input() budgets: any;
+  @Input() budgets: any; // recibe los budgets del home componente padre
   originalBudgets: any; // presupuestos originales
   searchBudget: string = '';
 
@@ -40,11 +40,11 @@ export class PressupostListComponent {
   }
 
   searchByCustomer() {
-    if (this.searchBudget.trim() === '') {
+    if (this.searchBudget === '') {
       // Si el término de búsqueda está vacío, mostrar todos los presupuestos originales
       this.budgets = [...this.originalBudgets];
     } else {
-      // Filtrar los presupuestos por el término de búsqueda
+      // Filtrar los presupuestos por el término de búsqueda que coincida
       this.budgets = this.originalBudgets.filter((budget: any) =>
         budget.customer.toLowerCase().includes(this.searchBudget.toLowerCase())
       );

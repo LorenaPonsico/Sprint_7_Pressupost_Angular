@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 
 
-@Injectable({
-  providedIn: 'root'
-})
-export class BudgetService {
-  toLocaleUpperCase() {
-    throw new Error('Method not implemented.');
-  }
+@Injectable({ providedIn: 'root'}) // puedo usarlo en toda la app
 
-  budgets: any[] = [];
+export class BudgetService {
+
+ public budgets: any[] = [];
   // ARRAY DE PRESUPUESTOS
 
   calculateBudget(web: number, language: number) {
